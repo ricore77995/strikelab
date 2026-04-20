@@ -1121,8 +1121,8 @@ footer { border-top: 1px solid var(--rule); padding: 80px 0 40px; }
 
   <div class="nav-right">
     <div class="lang">
-      <button data-lang="pt" class="on">PT</button>
-      <button data-lang="en">EN</button>
+      <button data-lang="pt">PT</button>
+      <button data-lang="en" class="on">EN</button>
     </div>
     <a href="#trial" class="btn btn-heat btn-sm hide-sm">
       <span data-t="nav.cta">Aula experimental</span>
@@ -1683,8 +1683,8 @@ footer { border-top: 1px solid var(--rule); padding: 80px 0 40px; }
   <div class="tweak-group">
     <label>Idioma inicial</label>
     <div class="tweak-opts" data-key="lang">
-      <button data-val="pt" class="on">PT</button>
-      <button data-val="en">EN</button>
+      <button data-val="pt">PT</button>
+      <button data-val="en" class="on">EN</button>
     </div>
   </div>
 </div>
@@ -1692,7 +1692,7 @@ footer { border-top: 1px solid var(--rule); padding: 80px 0 40px; }
 <script>
 const TWEAKS = /*EDITMODE-BEGIN*/{
   "accent": "ember",
-  "lang": "pt"
+  "lang": "en"
 }/*EDITMODE-END*/;
 
 // ============== i18n ==============
@@ -1963,7 +1963,7 @@ function applyLang(lang) {
   });
   document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
   renderSchedule(currentFilter);
-  try { localStorage.setItem('sl2:lang', lang); } catch {}
+  try { localStorage.setItem('sl2:lang:v2', lang); } catch {}
 }
 
 document.querySelectorAll('.lang button').forEach(b => {
@@ -2121,7 +2121,7 @@ try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch
 })();
 
 // ============== INIT ==============
-const savedLang = (() => { try { return localStorage.getItem('sl2:lang'); } catch { return null; } })();
+const savedLang = (() => { try { return localStorage.getItem('sl2:lang:v2'); } catch { return null; } })();
 applyLang(savedLang || TWEAKS.lang || 'pt');
 </script>
 </body>
